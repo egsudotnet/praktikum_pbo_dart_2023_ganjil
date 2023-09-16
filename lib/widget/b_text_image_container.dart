@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 
-class TextImageContainer extends StatelessWidget {
-  const TextImageContainer({super.key});
+class TextImageContainerExample extends StatelessWidget {
+  const TextImageContainerExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Contoh Widget Flutter'),
+          title: const Text("Contoh Widget Text-Image-Container"),
         ),
         body: Center(
           child: Column(
@@ -16,9 +16,9 @@ class TextImageContainer extends StatelessWidget {
             children: <Widget>[
               const Text(
                 'Selamat datang di Flutter!',
-                style: TextStyle(fontSize: 24.0),
+                style: TextStyle(fontSize: 50),
               ),
-              Image.asset('images/contoh-image.jpg', width: 100.0, height: 100.0),
+              Image.asset('images/contoh-image.jpg', width: 200.0, height: 200.0),
               Container(
                 color: Colors.blue,
                 padding: const EdgeInsets.all(10.0),

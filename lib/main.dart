@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:praktikum_flutter_pbo/widget/c_row_column.dart';
 import 'package:praktikum_flutter_pbo/widget/d_elevatedbutton.dart';
+import 'package:praktikum_flutter_pbo/widget/e_text_fileld.dart';
+import 'package:praktikum_flutter_pbo/widget/h_list_view.dart';
 
 import 'widget/a_scaffold_appbar.dart';
 import 'widget/b_text_image_container.dart';
+import 'widget/f_bottom_navigator.dart';
+import 'widget/g_alert_dialog.dart';
+import 'widget/i_drawer.dart';
+import 'widget/j_card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,12 +39,17 @@ class HomeScreen extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const UserAccountsDrawerHeader(
-              accountName: Text('Nama Pengguna'),
-              accountEmail: Text('email@example.com'),
-              // currentAccountPicture: CircleAvatar(
-              //   backgroundImage: AssetImage('assets/user_profile.jpg'), // Ganti dengan gambar profil Anda sendiri
-              // ),
+            const UserAccountsDrawerHeader(              
+              decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage("images/flutter_image.jpg"),
+                  fit:BoxFit.cover
+                )
+              ),
+              accountName: Text(""),
+              accountEmail: Text(""),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('images/contoh-image.jpg'), // Ganti dengan gambar profil Anda sendiri
+              ),
             ),
             ListTile(
               leading: const Icon(Icons.home),
@@ -47,33 +58,80 @@ class HomeScreen extends StatelessWidget {
                 // Tambahkan logika navigasi untuk halaman beranda di sini
                 
                 // Navigator.pop(context); // Tutup sidebar menu
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ScaffoldAppbar()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ScaffoldAppbarExample()));
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
+              leading: const Icon(Icons.image),
               title: const Text('Text-Image-Container'),
               onTap: () {
                 // Tambahkan logika navigasi untuk halaman pengaturan di sini
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const TextImageContainer()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const TextImageContainerExample()));
               },
             ),
             const Divider(), // Garis pemisah
             ListTile(
-              leading: const Icon(Icons.exit_to_app),
+              leading: const Icon(Icons.grid_3x3),
               title: const Text('Row-Column'),
               onTap: () {
                 // Tambahkan logika untuk keluar dari aplikasi di sini
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const RowColumn()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const RowColumnExample()));
               },
             ),
-            const Divider(), // Garis pemisah
             ListTile(
-              leading: const Icon(Icons.exit_to_app),
-              title: const Text('levatedButton (Tombol Berwarna):'),
+              leading: const Icon(Icons.ads_click),
+              title: const Text('ElevatedButton (Tombol Berwarna):'),
               onTap: () {
                 // Tambahkan logika untuk keluar dari aplikasi di sini
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ElevatedButtonExample()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.text_decrease),
+              title: const Text('Text Field'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const TextFieldExample()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.text_decrease),
+              title: const Text('Bottom NavigationBar'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const BottomNavigationBarExample()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('AlertDialog'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AlertDialogExample()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.list),
+              title: const Text('List View'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ListViewExample()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.menu),
+              title: const Text('Drawer (Menu Slide-in)'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const DrawerExample()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.card_travel),
+              title: const Text('Card'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CardExample()));
               },
             ),
           ],

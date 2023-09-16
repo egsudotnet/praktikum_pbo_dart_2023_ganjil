@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ScaffoldAppbar extends StatelessWidget {
-  const ScaffoldAppbar({super.key});
+class ScaffoldAppbarExample extends StatelessWidget {
+  const ScaffoldAppbarExample({super.key});
 
   @override
   Widget build(BuildContext context) {

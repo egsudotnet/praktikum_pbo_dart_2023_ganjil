@@ -3,6 +3,8 @@ import 'package:praktikum_flutter_pbo/widget/c_row_column.dart';
 import 'package:praktikum_flutter_pbo/widget/d_elevatedbutton.dart';
 import 'package:praktikum_flutter_pbo/widget/e_text_fileld.dart';
 import 'package:praktikum_flutter_pbo/widget/h_list_view.dart';
+import 'package:praktikum_flutter_pbo/widget/k_list_view_builder_data_statis.dart';
+import 'package:praktikum_flutter_pbo/widget/l_list_view_builder_data_api.dart';
 
 import 'widget/a_scaffold_appbar.dart';
 import 'widget/b_text_image_container.dart';
@@ -95,7 +97,7 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.text_decrease),
+              leading: const Icon(Icons.navigation),
               title: const Text('Bottom NavigationBar'),
               onTap: () {
                 // Tambahkan logika untuk keluar dari aplikasi di sini
@@ -127,11 +129,27 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.card_travel),
+              leading: const Icon(Icons.card_membership_outlined),
               title: const Text('Card'),
               onTap: () {
                 // Tambahkan logika untuk keluar dari aplikasi di sini
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const CardExample()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.card_membership_outlined),
+              title: const Text('List View Builder - Data Statis'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ListViewBuilderDataStatis()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.card_membership_outlined),
+              title: const Text('List View Builder - Data API'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ListViewBuilderDataApi()));
               },
             ),
           ],

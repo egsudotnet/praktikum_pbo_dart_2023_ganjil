@@ -10,13 +10,15 @@ class Item {
 }
 
 class ListViewBuilderDataStatis extends StatelessWidget {
-  ListViewBuilderDataStatis({super.key});
+
  final List<Item> items = [
   Item("Item 1", "Deskripsi Item 1", 7000),
   Item("Item 2", "Deskripsi Item 2", 5000),
   Item("Item 3", "Deskripsi Item 3", 3000)
   
  ];
+
+  ListViewBuilderDataStatis({super.key});
 
 
   @override
@@ -32,6 +34,9 @@ class ListViewBuilderDataStatis extends StatelessWidget {
             return ListTile(
               title: Text(items[index].name),
               subtitle: Text("${items[index].description} Rp.${items[0].price}"),
+              leading: const CircleAvatar(
+                  backgroundImage: AssetImage("images/contoh-image.jpg"), // No matter how big it is, it won't overflow
+                ),
               onTap: () {
                 showDialog(
                   context: context, 

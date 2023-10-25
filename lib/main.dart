@@ -154,7 +154,7 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.food_bank_outlined),
+              leading: const Icon(Icons.add_box),
               title: const Text('CRUD Local -SQLite'),
               onTap: () {
                 // Tambahkan logika untuk keluar dari aplikasi di sini

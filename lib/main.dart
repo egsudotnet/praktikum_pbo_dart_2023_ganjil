@@ -12,6 +12,7 @@ import 'widget/f_bottom_navigator.dart';
 import 'widget/g_alert_dialog.dart';
 import 'widget/i_drawer.dart';
 import 'widget/j_card.dart';
+import 'widget/m_a_crud_sqllite.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,14 +44,14 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             const UserAccountsDrawerHeader(              
               decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage("images/flutter_image.jpg"),
+                  image: DecorationImage(image: AssetImage("assets/images/flutter_image.jpg"),
                   fit:BoxFit.cover
                 )
               ),
               accountName: Text(""),
               accountEmail: Text(""),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('images/contoh-image.jpg'), // Ganti dengan gambar profil Anda sendiri
+                backgroundImage: AssetImage('assets/images/contoh-image.jpg'), // Ganti dengan gambar profil Anda sendiri
               ),
             ),
             ListTile(
@@ -150,6 +151,14 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                 // Tambahkan logika untuk keluar dari aplikasi di sini
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ListViewBuilderDataApi()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.food_bank_outlined),
+              title: const Text('CRUD Local -SQLite'),
+              onTap: () {
+                // Tambahkan logika untuk keluar dari aplikasi di sini
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyCrudLocal()));
               },
             ),
           ],

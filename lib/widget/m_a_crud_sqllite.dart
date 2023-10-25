@@ -133,11 +133,11 @@ class _HomeScreenState extends State<HomeScreen> {
           Barang barang = barangs[index];
           return ListTile(
             title: Text(barang.nama),
-            subtitle: Text('Harga: \$${barang.harga.toStringAsFixed(2)}'),
+            subtitle: Text('Harga: Rp.${barang.harga.toStringAsFixed(2)}'),
             trailing: IconButton(
               icon: const Icon(Icons.delete),
               onPressed: () {
-                deleteBarang(barang.id!);
+                deleteBarang(context,barang.id!);
               },
             ),
             onLongPress: (){              
@@ -175,10 +175,41 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void deleteBarang(int id) async {
-    int result = await DatabaseHelper.instance.deleteBarang(id);
-    if (result > 0) {
-      fetchData();
-    }
-  }
+  // void deleteBarang(int id) async {
+  //   int result = await DatabaseHelper.instance.deleteBarang(id);
+  //   if (result > 0) {
+  //     fetchData();
+  //   }
+  // }
+  void deleteBarang(BuildContext context, int id) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Konfirmasi Hapus'),
+        content: const Text('Apakah Anda yakin ingin menghapus barang ini?'),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Batal'),
+            onPressed: () {
+              Navigator.of(context).pop(); // Tutup dialog
+            },
+          ),
+          TextButton(
+            child: const Text('Hapus'),
+            onPressed: () async {
+              // Hapus barang dari database
+              int result = await DatabaseHelper.instance.deleteBarang(id);
+              if (result > 0) {
+                fetchData(); // Memuat ulang daftar barang setelah penghapusan
+                Navigator.of(context).pop(); // Tutup dialog
+              }
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
 }
